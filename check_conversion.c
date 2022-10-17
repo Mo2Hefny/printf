@@ -26,8 +26,8 @@ s = va_arg(args, char *);
 if (i == index)
 return (print_str(s));
 break;
-case 'i':
 case 'd':
+case 'i':
 n = va_arg(args, int);
 if (i == index)
 return (print_dec(n));
@@ -36,11 +36,13 @@ case 'x':
 case 'X':
 n = va_arg(args, int);
 if (i == index)
-{
 return (print_hex(n, *(op + i)));
-}
 break;
-
+case 'b':
+n = va_arg(args, int);
+if (i == index)
+return (print_binary(n));
+break;
 }
 }
 

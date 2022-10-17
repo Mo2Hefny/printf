@@ -62,3 +62,29 @@ for (i = len; i >= 0; i--)
 print_buffer(hexadecimal[i]);
 return (len);
 }
+
+/**
+ * print_binary - prints number in base 10
+ * @n: number
+ * Return: size of buffer
+ */
+
+int print_binary(int n)
+{
+int len = 0, i = 0;
+char bin[100];
+if (n == 0)
+return (1);
+while (n != 0)
+{
+if (n % 2)
+bin[i++] = 1 + '0';
+else
+bin[i++] = 0 + '0';
+len++;
+n /= 2;
+}
+for (--i; i >= 0; i--)
+print_buffer(bin[i]);
+return (len);
+}
