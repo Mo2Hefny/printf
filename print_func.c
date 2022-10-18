@@ -89,9 +89,8 @@ for (i = 0, len = 32; i < 32; i++)
 {
 if (bin[i] == '1')
 first = 1;
-if (first)
+if (first || i == 31)
 {
-printf("entered at: %d\n", i);
 len -= i;
 if (print_buffer((bin + i), len) == -1)
 return (-1);
