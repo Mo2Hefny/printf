@@ -43,6 +43,13 @@ n = va_arg(args, int);
 if (i == index)
 return (print_binary(n));
 break;
+case '%':
+print_buffer('%');
+return (1);
+default:
+print_buffer('%');
+print_buffer(*(op + i));
+return (2);
 }
 }
 
