@@ -1,5 +1,5 @@
 #include "main.h"
-
+/* for commits */
 /**
  * print_char - Prints character
  * @list: list of arguments
