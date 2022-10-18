@@ -8,10 +8,10 @@
 
 int print_str(char *s)
 {
-int len = 0, n;
+int len = 0, n, l = 1;
 while (s[len])
-len++;
-return (print_buffer(&s[0], len));
+print_buffer(&s[len++], l);
+return (len);
 }
 
 /**
