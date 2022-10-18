@@ -19,6 +19,7 @@ int parser(const char *format, conver_t f_list[], va_list arg_list);
 
 int print_char(va_list list);
 int print_string(va_list list);
+int print_string_custom(va_list list);
 int print_percent(va_list list);
 int print_int(va_list list);
 int print_unsigned(va_list list);
@@ -35,5 +36,6 @@ int print_unsigned_number(unsigned int n);
 
 int hex_check(int, char);
 int base_len(int num, int base);
+int hex_2dig(int);
 
 #endif

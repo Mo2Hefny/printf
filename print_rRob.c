@@ -29,8 +29,31 @@ return (len);
 
 int print_octa(va_list list)
 {
-int len = 1;
-(void)list;
+unsigned long int num;
+int len, i;
+int rem_num;
+char *octa_rep;
+num = va_arg(list, unsigned long int);
+if (num == 0)
+return (print_buffer("0", 1));
+if (num < 1)
+return (-1);
+len = base_len(num, 8);
+octa_rep = malloc(sizeof(char) * len + 1);
+if (octa_rep == NULL)
+return (-1);
+for (len = 0; num > 0; len++)
+{
+rem_num = num % 8 + '0';
+octa_rep[len] = rem_num;
+num /= 8;
+}
+octa_rep[len] = '\0';
+for (i = len - 1; i >= 0; i--)
+{
+  print_buffer(&octa_rep[i], 1);
+}
+free(octa_rep); 
 return (len);
 }
 

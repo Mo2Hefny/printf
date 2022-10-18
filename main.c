@@ -45,5 +45,6 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%R]\n", "abcdefghijklmnopqrstuvwxyz()+_");
     printf("Unknown:[%R]\n", "abcdefghijklmnopqrstuvwxyz()+_");
+    _printf("%S\n", "Best\nSchool");
     return (0);
 }

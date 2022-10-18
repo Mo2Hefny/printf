@@ -23,6 +23,7 @@ conver_t f_list[] = {
 {"o", print_octa},
 {"x", print_hex},
 {"X", print_heX},
+{"S", print_string_custom},
 {NULL, NULL}
 };
 va_list arg_list;
