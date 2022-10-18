@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+int hex_check(int, char);
 
 /**
  * print_heX - Prints a representation of a decimal number on base16 Uppercase
