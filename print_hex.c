@@ -13,7 +13,6 @@ unsigned int num;
 int len, i;
 int rem_num;
 char *hex_rep;
-char *rev_hex;
 num = va_arg(list, unsigned int);
 if (num == 0)
 return (print_buffer("0", 1));
@@ -40,8 +39,7 @@ for (i = len - 1; i >= 0; i--)
 {
   print_buffer(&hex_rep[i], 1);
 }
-free(hex_rep);
-free(rev_hex); 
+free(hex_rep); 
 return (len);
 }
 
@@ -57,7 +55,6 @@ unsigned int num;
 int len, i;
 int rem_num;
 char *hex_rep;
-char *rev_hex;
 num = va_arg(list, unsigned int);
 if (num == 0)
 return (print_buffer("0", 1));
@@ -85,7 +82,6 @@ for (i = len - 1; i >= 0; i--)
   print_buffer(&hex_rep[i], 1);
 }
 free(hex_rep);
-free(rev_hex); 
 return (len);
 return (len);
 }
