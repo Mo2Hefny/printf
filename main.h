@@ -14,7 +14,7 @@ int print_char(char c);
 int print_str(char *s);
 int print_dec(int n);
 int print_int(int n);
-int print_unsigned(int n);
+int print_unsigned(unsigned int n);
 int print_octa(int n);
 int print_hex(int n, char lettercase);
 int print_address(char c);
