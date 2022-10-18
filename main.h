@@ -21,11 +21,7 @@ int print_address(char c);
 int print_str_custom(char *s);
 int print_rev(char *s);
 int print_rot13(char *s);
+int print_binary(unsigned int n);
 
-typedef struct conversion
-{
-char *op;
-int (*func)(int a, int b);
-} conv_t;
 
 #endif

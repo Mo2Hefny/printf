@@ -8,7 +8,7 @@
  */
 int print_buffer(char s[], int size)
 {
-	if (size > 0)
-	return(write(1, &s[0], size));
-	
+if (size > 0)
+return (write(1, &s[0], size));
+return (-1);
 }
