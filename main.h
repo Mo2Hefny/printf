@@ -7,7 +7,7 @@
 #include <string.h>
 
 int _printf(const char *format, ...);
-int print_buffer(char c);
+int print_buffer(char *s, int *size);
 int check_conversion(char *op, va_list args, int index);
 
 int print_char(char c);

@@ -8,8 +8,8 @@
 
 int _printf(const char *format, ...)
 {
-int len = 0, index = 0, i, j = 0;
-char op[100] = {0};
+int printed, len = 0, index = 0, ind = 0, i, j = 0;
+char buff[1024], op[100] = {0};
 va_list args;
 
 if (!format)
@@ -27,12 +27,17 @@ for (i = 0; format[i]; i++)
 {
 if (format[i] == '%')
 {
-len += check_conversion(op, args, j++);
+print_buffer(buff, &ind);
+printed = check_conversion(op, args, j++);
+if (printed == -1)
+return (-1);
+len += printed;
 i++;
 }
 else
 {
-print_buffer(format[i]);
+buff[ind++] = fotmat[i];
+print_buffer(buffer, &ind);
 }
 }
 va_end(args);

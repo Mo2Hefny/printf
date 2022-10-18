@@ -1,12 +1,14 @@
 #include <unistd.h>
 /**
  * print_buffer - writes the character c
- * @c: The character to print
- *
+ * @s: The characters to print
+ * @size: size
  * Return: On success 1.
  * On error, -1 is returned.
  */
-int print_buffer(char c)
+int print_buffer(char *s, int *size)
 {
-return (write(1, &c, 1));
+int n = *size;
+*size = 0;
+return (write(1, s, n));
 }

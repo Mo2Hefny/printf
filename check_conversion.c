@@ -11,7 +11,7 @@
 int check_conversion(char *op, va_list args, int index)
 {
 char *s = NULL, c;
-int i, n;
+int l = 1, i, n;
 for (i = 0; i <= index && op[i]; i++)
 {
 switch (*(op + i))
@@ -19,7 +19,7 @@ switch (*(op + i))
 case 'c':
 c = va_arg(args, int);
 if (i == index)
-return (print_buffer(c));
+return (print_buffer(&c, &l));
 break;
 case 's':
 s = va_arg(args, char *);
@@ -44,14 +44,14 @@ if (i == index)
 return (print_binary(n));
 break;
 case '%':
-print_buffer('%');
+print_buffer("%", &l);
 return (1);
 default:
-print_buffer('%');
+print_buffer("%", &l);
 print_buffer(*(op + i));
-return (2);
+return (-1);
 }
 }
 
-return (0);
+return (-1);
 }
