@@ -6,9 +6,9 @@
  * Return: On success 1.
  * On error, -1 is returned.
  */
-int print_buffer(char s[], int size)
+int print_buffer(char *s, int size)
 {
 if (size > 0)
-return (write(1, &s[0], size));
+return (write(1, s, size));
 return (-1);
 }
