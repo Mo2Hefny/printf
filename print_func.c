@@ -11,7 +11,7 @@ int print_str(char *s)
 int len = 0, n;
 while (s[len])
 len++;
-return (print_buffer(&s[0], len);
+return (print_buffer(&s[0], len));
 }
 
 /**
@@ -26,7 +26,7 @@ int l = 1, len = 1;
 char c;
 if (n < 0)
 {
-print_buffer('-', 1);
+print_buffer("-", &l);
 len++;
 n = -n;
 }
@@ -77,7 +77,7 @@ int len = 0, i = 0, l = 1;
 char bin[100];
 if (n == 0)
 {
-print_buffer('0', 1);
+print_buffer("0", &l);
 return (1);
 }
 while (n != 0)

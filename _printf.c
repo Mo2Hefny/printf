@@ -36,8 +36,8 @@ i++;
 }
 else
 {
-buff[ind++] = fotmat[i];
-print_buffer(buffer, &ind);
+buff[ind++] = format[i];
+print_buffer(buff, &ind);
 }
 }
 va_end(args);

@@ -48,7 +48,7 @@ print_buffer("%", &l);
 return (1);
 default:
 print_buffer("%", &l);
-print_buffer(*(op + i));
+print_buffer(*(op + i), &l);
 return (-1);
 }
 }
