@@ -5,23 +5,37 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+
+typedef struct f_list
+{
+char *sym;
+int (*f)(va_list);
+} conver_t;
 
 int print_buffer(char *s, int size);
 int _printf(const char *format,...);
-int check_conversion(char *op, va_list args, int index);
+int parser(const char *format, conver_t f_list[], va_list arg_list);
 
-int print_char(char c);
-int print_str(char *s);
-int print_dec(int n);
-int print_int(int n);
-int print_unsigned(unsigned int n);
-int print_octa(int n);
-int print_hex(int n, char lettercase);
-int print_address(char c);
-int print_str_custom(char *s);
-int print_rev(char *s);
-int print_rot13(char *s);
-int print_binary(unsigned int n);
+int print_char(va_list list);
+int print_string(va_list list);
+int print_string_custom(va_list list);
+int print_percent(va_list list);
+int print_int(va_list list);
+int print_unsigned(va_list list);
+int print_octa(va_list list);
+int print_hex(va_list list);
+int print_heX(va_list list);
+int print_address(va_list list);
+int print_str_custom(va_list list);
+int print_reverse(va_list list);
+int print_rot13(va_list list);
+int print_binary(va_list list);
+int print_number(va_list args);
+int print_unsigned_number(unsigned int n);
 
+int hex_check(int, char);
+int base_len(int num, int base);
+int hex_2dig(int);
 
 #endif

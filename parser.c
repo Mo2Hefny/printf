@@ -8,15 +8,19 @@
  * @arg_list: A list containing all the argumentents passed to the program.
  * Return: A total count of the characters printed.
  */
+
 int parser(const char *format, conver_t f_list[], va_list arg_list)
 {
-int i, j, r_val, printed_chars;
+int i, j, r_val, printed_chars = 0, index = 0;
+char buffer[1024];
 
 printed_chars = 0;
 for (i = 0; format[i] != '\0'; i++)/* Iterates through the main str*/
 {
 if (format[i] == '%') /*Checks for format specifiers*/
 {
+print_buffer(buffer, index);
+index = 0;
 /*Iterates through struct to find the right func*/
 for (j = 0; f_list[j].sym != NULL; j++)
 {
@@ -33,20 +37,28 @@ if (f_list[j].sym == NULL && format[i + 1] != ' ')
 {
 if (format[i + 1] != '\0')
 {
-print_buffer(format[i]);
-print_buffer(format[i + 1]);
-printed_chars = printed_chars + 2;
+buffer[index++] = format[i];
+buffer[index++] = format[i + 1];
+print_buffer(buffer, index);
+index = 0;
+printed_chars += 2;
 }
 else
 return (-1);
 }
-i = i + 1; /*Updating i to skip format symbols*/
+i++; /*Updating i to skip format symbols*/
 }
 else
 {
-print_buffer(format[i]); /*call the print function*/
 printed_chars++;
+buffer[index++] = format[i];
+if (index == 1024)
+{
+print_buffer(buffer, index);
+index = 0;
 }
 }
+}
+print_buffer(buffer, index);
 return (printed_chars);
 }
