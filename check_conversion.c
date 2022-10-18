@@ -2,9 +2,7 @@
 
 /**
  * check_conversion - check conversion letter after %
- * @op: conversion options in format
- * @args: arguments in function
- * @index: number of conversion to check in op array
+ * @c: letter
  * Return: size
  */
 
@@ -19,15 +17,19 @@ switch (*(op + i))
 case 'c':
 c = va_arg(args, int);
 if (i == index)
-return (print_buffer(c));
+{
+print_buffer(&c, 1);
+return (1);
+}
 break;
 case 's':
 s = va_arg(args, char *);
+
 if (i == index)
 return (print_str(s));
 break;
-case 'd':
 case 'i':
+case 'd':
 n = va_arg(args, int);
 if (i == index)
 return (print_dec(n));
@@ -39,19 +41,23 @@ if (i == index)
 return (print_hex(n, *(op + i)));
 break;
 case 'b':
-n = va_arg(args, int);
+n = va_arg(args, unsigned int);
 if (i == index)
 return (print_binary(n));
 break;
+case 'u':
+n = va_arg(args, unsigned int);
+if (i == index)
+return (print_unsigned(n));
+break;
 case '%':
-print_buffer('%');
+print_buffer("%", 1);
 return (1);
 default:
-print_buffer('%');
-print_buffer(*(op + i));
+print_buffer("%", 1);
+print_buffer((op + i), 1);
 return (2);
 }
 }
-
-return (0);
+return (-1);
 }

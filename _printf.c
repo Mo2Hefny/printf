@@ -8,33 +8,38 @@
 
 int _printf(const char *format, ...)
 {
-int len = 0, index = 0, i, j = 0;
-char op[100] = {0};
-va_list args;
+  int len = 0, index = 0, i, j, printed = 0;
+  char op[100] = {0}, buffer[1024];
+  va_list args;
 
-if (!format)
-return (-1);
-while (format[index])
-if (format[index++] != '%')
-len++;
-else
-{
-op[j++] = format[index++];
-}
-j = 0;
-va_start(args, format);
-for (i = 0; format[i]; i++)
-{
-if (format[i] == '%')
-{
-len += check_conversion(op, args, j++);
-i++;
-}
-else
-{
-print_buffer(format[i]);
-}
-}
-va_end(args);
-return (len);
+  if (!format)
+    return (-1);
+  va_start(args, format);
+  for (i = 0, j = 0; format[i]; i++)
+  {
+    if (format[i] == '%')
+    {
+      print_buffer(buffer, index);
+      index = 0;
+      op[j] = format[++i];
+      printed = check_conversion(op, args, j++);
+      if (printed == -1)
+        return (-1);
+      len += printed;
+    }
+    else
+    {
+      len++;
+      buffer[index++] = format[i];
+      if (index == 1024)
+      {
+        print_buffer(buffer, index);
+        index = 0;
+      }
+    }
+  }
+  print_buffer(buffer, index);
+  index = 0;
+  va_end(args);
+  return (len);
 }
