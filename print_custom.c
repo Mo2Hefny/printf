@@ -1,5 +1,5 @@
 #include "main.h"
-/* for commits */
+
 /**
  * print_string_custom - Prints a string
  * @list: list of arguments
@@ -18,7 +18,7 @@ for (i = 0; str[i] != '\0'; i++)
 if (str[i] < 32 || str[i] >= 127)
 {
 print_buffer("\\x", 2);
-hex_2dig(128);
+hex_2dig(str[i]);
 }
 else
 print_buffer(&str[i], 1);
