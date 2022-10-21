@@ -1,5 +1,2 @@
-# PRINTF
-## Usage
-### Can handle
-- s, c
-- d, i
+project 1
+for commits

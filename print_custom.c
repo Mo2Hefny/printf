@@ -1,5 +1,5 @@
 #include "main.h"
-
+/* for commits */
 /**
  * print_string_custom - Prints a string
  * @list: list of arguments

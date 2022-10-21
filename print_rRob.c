@@ -1,5 +1,5 @@
 #include "main.h"
-
+/* for commits */
 /**
  * print_reverse - prints string backwards
  * @list: List of all of the argumets

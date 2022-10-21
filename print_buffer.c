@@ -1,3 +1,4 @@
+/* for commits */
 #include <unistd.h>
 /**
  * print_buffer - writes the character c
