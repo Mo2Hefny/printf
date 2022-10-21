@@ -7,7 +7,7 @@
  */
 int print_string_custom(va_list list)
 {
-int i;
+int i, len = 0;
 char *str;
 
 str = va_arg(list, char *);
@@ -19,11 +19,15 @@ if (str[i] < 32 || str[i] >= 127)
 {
 print_buffer("\\x", 2);
 hex_2dig(str[i]);
+len += 4;
 }
 else
+{
 print_buffer(&str[i], 1);
+len++;
 }
-return (i);
+}
+return (len);
 }
 
 int hex_2dig(int n)
