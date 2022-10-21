@@ -16,9 +16,9 @@ if (s == NULL)
 s = "(null)";
 while (s[len++])
 ;
-for (i = --len; i >= 0; i--)
+for (i = len - 2; i >= 0; i--)
 print_buffer(&s[i], 1);
-return (len);
+return (--len);
 }
 
 /**
